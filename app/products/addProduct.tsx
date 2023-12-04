@@ -1,17 +1,17 @@
 'use client'
 import { SyntheticEvent, useState } from "react"
-import type { Brand } from "@prisma/client";
+import { type Brand } from "@prisma/client";
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 
 export default function AddProduct({ brands }: { brands: Brand[] }) {
-    const [isOpen, setIsOPen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [brand, setBrand] = useState("");
     const router = useRouter()
     const handleModal = () => {
-        setIsOPen(!isOpen)
+        setIsOpen(!isOpen)
     }
 
     const handleSubmit = async (e: SyntheticEvent) => {
@@ -25,7 +25,7 @@ export default function AddProduct({ brands }: { brands: Brand[] }) {
         setPrice("");
         setBrand("");
         router.refresh();
-        setIsOPen(false);
+        setIsOpen(false);
     }
 
     return (
